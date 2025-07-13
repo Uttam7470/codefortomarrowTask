@@ -1,7 +1,6 @@
 import { useApp } from "./context/AppContext";
 import PostCard from "./components/PostCard";
 import Pagination from "./components/Pagination";
-import ViewToggle from "./components/ViewToggle";
 import FeedbackForm from "./components/FeedbackForm";
 import Sidebar from "./components/Sidebar";
 import "./App.css";
@@ -16,16 +15,20 @@ function App() {
   return (
     <div className="app">
       <Sidebar />
+
       {loading ? (
         <div className="loading">Loading...</div>
       ) : (
-        <div className={`content ${view}`}>
-          {currentPosts.map(post => (
-            <PostCard key={post.id} post={post} />
-          ))}
+        <div className="main-content">
+          <div className={`content ${view}`}>
+            {currentPosts.map((post) => (
+              <PostCard key={post.id} post={post} />
+            ))}
+          </div>
           <Pagination />
         </div>
       )}
+
       {showFeedback && <FeedbackForm />}
     </div>
   );

@@ -1,3 +1,5 @@
+
+
 import { useApp } from "../context/AppContext";
 
 const ViewToggle = () => {
@@ -6,13 +8,17 @@ const ViewToggle = () => {
   return (
     <div className="view-toggle">
       <button
-        className={view === "grid" ? "active" : ""}
-        onClick={() => setView("grid")}
-      >🔲</button>
-      <button
         className={view === "list" ? "active" : ""}
         onClick={() => setView("list")}
-      >📋</button>
+      >
+        <span role="img" aria-label="list">List</span>
+      </button>
+      <button
+        className={view === "grid" ? "active" : ""}
+        onClick={() => setView("grid")}
+      >
+        <span role="img" aria-label="grid">Card</span>
+      </button>
     </div>
   );
 };

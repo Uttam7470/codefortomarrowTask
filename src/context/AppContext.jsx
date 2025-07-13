@@ -9,16 +9,15 @@ export const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [showFeedback, setShowFeedback] = useState(false);
 
-  // Toggle feedback form visibility
+
   const toggleFeedback = () => setShowFeedback(prev => !prev);
 
-  // Remove post and shift one from next page
   const removePost = (id) => {
     const newPosts = posts.filter(p => p.id !== id);
     setPosts(newPosts);
   };
 
-  // Fetch posts after 5s delay
+ 
   useEffect(() => {
     setTimeout(() => {
       fetch("https://jsonplaceholder.typicode.com/posts")
